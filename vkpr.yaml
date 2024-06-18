@@ -4,7 +4,7 @@ global:
   provider: aws
   ingressClassName: kong  
 cert-manager:
-  hostedZoneID: Z0588229N2Y5ZB0SPHUM    
+  hostedZoneID: Z029902630T1EZ9LE2TGI    
   enabled: true
   email: email@sample.com 
   issuer:
