@@ -1,0 +1,36 @@
+values:
+    ### Enviroment Settings
+    environment: ec2_environment
+    ### Project Settings
+    cluster_name: cluster-ec2-kong-apr
+    owner: group:default/admin
+    instance_type: t3.medium
+    volume_size: 30
+    keypair_name: platform_kp
+    ### Network Settings
+    vpc_id: vpc-03390e24728683217
+    domain: ec2.enviroment.platform.vee.codes
+    hostedZoneId: Z0588229N2Y5ZB0SPHUM
+    subnet_id: subnet-02b0767acee0b65bb
+    ### Ingress Settings
+    ingress_window: true
+    ingress_type: kong
+    kong_mode: standard
+    external_db: false
+    basic_auth: true
+    certmanager_window: true
+    issuer_type: production
+    email: email@sample.com
+    ### Terraform Backend Settings
+    terraformStateBucketName: veecode-apr-terraform-state
+    terraformStateBucketRegion: us-east-1
+    infracost: false
+    ### Publish Settings
+    host: github.com
+    destination: veecode-apr/cluster-ec2-kong-apr
+    specPublish: ${{ parameters.specPublish | parseRepoUrl | pick('owner') }}/${{ parameters.specPublish | parseRepoUrl | pick('repo') }}
+    specPublishRepo: ${{ parameters.specPublish | parseRepoUrl | pick('repo') }}
+    specPublishBranch: 
+    ### Observability Settings
+    observability_window: true
+    observability_grafana_url: https://grafana.apr.vee.codes
