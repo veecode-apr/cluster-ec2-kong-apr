@@ -8,7 +8,7 @@ metadata:
     public_ip: 52.7.78.161
   annotations:
     github.com/project-slug: veecode-apr/cluster-ec2-kong-apr
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: dir:..
     github.com/workflows: terraform-deploy.yml,start-instance.yml,stop-instance.yml,kubeconfig.yml,terraform-destroy.yml,deploy-dashboard
     grafana/dashboard-selector: cluster-ec2-kong-apr
     grafana/alert-label-selector: "alertname=cluster-ec2-kong-apr"
