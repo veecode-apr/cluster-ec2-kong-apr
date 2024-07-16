@@ -12,6 +12,8 @@ metadata:
     github.com/workflows: terraform-deploy.yml,start-instance.yml,stop-instance.yml,kubeconfig.yml,terraform-destroy.yml,deploy-dashboard
     grafana/dashboard-selector: cluster-ec2-kong-apr
     grafana/alert-label-selector: "alertname=cluster-ec2-kong-apr"
+    backstage.io/kubernetes-id: cluster-ec2-kong-apr
+    infracost/project: cluster-ec2-kong-apr
     cluster/instructions: "# Run the following commands to import the kubeconfig:\n  ssh -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@$52.7.78.161 \"mkdir -p .kube && k3d kubeconfig get k3s > ~/.kube/config\"\n  scp -i ./cert.pem $USERNAME@$52.7.78.161:~/.kube/config ~/.kube/config-cluster-ec2-kong-apr\n  yq -e 'del(.clusters[0].cluster.certificate-authority-data) | .clusters[0].cluster.insecure-skip-tls-verify=true | .clusters[].cluster.server |= sub(\"0.0.0.0\", \"52.7.78.161\")' -i ~/.kube/config-cluster-ec2-kong-apr\n  export KUBECONFIG=~/.kube/config-cluster-ec2-kong-apr\n  kubectl get pods -A\n"
 spec:
   type: ec2
