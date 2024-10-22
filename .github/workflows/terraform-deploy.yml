@@ -151,6 +151,14 @@ jobs:
           curl -fsSL https://get.vkpr.net/ | CONTROL_SKIP="true" bash
           rit update repo --name="vkpr-cli" --version=1.3.9
 
+      - name: Fix Arkade
+        run: |
+          echo "Installing arkade..."
+          curl -sLS https://get.arkade.dev > /tmp/arkinst.sh
+          chmod +x /tmp/arkinst.sh
+          BINLOCATION=~/.vkpr/bin /tmp/arkinst.sh 2> /dev/null
+          rit vkpr init
+
       - name: Install yq
         run: |
           wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
