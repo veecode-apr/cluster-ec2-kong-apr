@@ -157,6 +157,7 @@ jobs:
           curl -sLS https://get.arkade.dev > /tmp/arkinst.sh
           chmod +x /tmp/arkinst.sh
           BINLOCATION=~/.vkpr/bin /tmp/arkinst.sh 2> /dev/null
+          rm -rf ~/.vkpr/bin/*
           rit vkpr init
 
       - name: Install yq
